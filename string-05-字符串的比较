@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+#include<string>
+
+//string字符串的比较---compare(主要是比较相等）
+//按照ASCII码进行比较
+//  = 返回 0
+//  > 返回 1
+//  < 返回 -1
+
+
+void test01()
+{
+	string str1 = "hello";
+	string str2 = "hello";
+
+	if (str1.compare(str2) == 0)
+	{
+		cout << "str1 和 str2 相等" << endl;
+	}
+
+	string str3 = "hella";
+	if (str1.compare(str3) > 0)
+	{
+		cout << "str1 比 str3 大" << endl;
+	}
+
+	string str4 = "hellz";
+	if (str1.compare(str4) < 0)
+	{
+		cout << "str1 比 str4 小" << endl;
+	}
+}
+
+int main()
+{
+	test01();
+
+	system("pause");
+	return 0;
+}

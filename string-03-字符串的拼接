@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+#include<string>
+
+//string字符串拼接
+//1.string& operator+=(..);
+//2.string& append(...);
+
+void test01()
+{
+	string str1 = "我";
+
+	//1.
+	str1 += "是一个小猪猪";
+	cout << str1 << endl;
+
+
+	//2.
+	str1 += 'G';
+	cout << str1 << endl;
+
+	string str3 = "这是什么？";
+
+	//3.
+	str1 += str3;
+	cout << str1 << endl;
+}
+
+void test02()
+{
+	string str1 = "我是一个";
+
+	//1.
+	str1.append("小羊羊");
+	cout << str1 << endl;
+
+	//2.
+	str1.append("who are you?", 3);
+	cout << str1 << endl;
+	
+	string str2 = "这是我要追加的";
+
+	//3.
+	str1.append(str2);
+	cout << str1 << endl;
+
+
+	//4.
+	string str3 = "我的追加操作";
+	str3.append(str2, 2, 5);   //从str2 中，追加第2个字符开始的5个字符（英文字符）
+	cout << str3 << endl;
+}
+
+int main()
+{
+	test01();
+	test02();
+
+	system("pause");
+	return 0;
+}

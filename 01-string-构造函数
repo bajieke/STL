@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+#include<string>
+
+void test01()
+{
+	//1.string();
+	string s1;
+
+
+	//2.string(const char* ch);
+	const char* str = "hello word";
+	string s2(str);
+
+	cout << s2 << endl;
+
+
+	//3.string(const string& str);
+	string s3(s2);
+
+	cout << s3 << endl;
+
+
+	//4.string(int n,char ch);
+	string s4(5, 'u');
+
+	cout << s4 << endl;
+}
+
+int main()
+{
+	test01();
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+
+//vector插入和删除
+
+void printVector(vector<int>& vec)
+{
+	for (vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+}
+
+void test01()
+{
+	vector<int>vec;
+	
+	//尾插
+	for (int i = 1; i < 10; i++)
+	{
+		vec.push_back(i * 10);
+	}
+
+	vector<int>vec1(vec.begin(), vec.end());
+
+	printVector(vec);
+
+	//尾删
+	vec.pop_back();
+	printVector(vec);
+
+	//insert，插入一个数
+	vec.insert(vec.begin(), 999);
+	printVector(vec);
+
+	//insert，插入3个数
+	vec.insert(vec.begin(),3, 888);
+	printVector(vec);
+
+	//insert，指定位置插入数
+	vector<int>::iterator it = vec.begin();
+	it++;
+	vec.insert(it, 444);
+	//vec.insert(it, 2, 444);
+	printVector(vec);
+
+	//erase,删除一个元素
+	vec.erase(vec.begin());
+	printVector(vec);
+
+	//erase,删除一个区间里的元素
+	vec.erase(vec.begin(), vec.end());
+	printVector(vec);
+
+
+	//清空
+	cout << "清空" << endl;
+	printVector(vec1);
+	vec1.clear();
+	printVector(vec1);
+}
+
+int main()
+{
+	test01();
+
+	system("pause");
+	return 0;
+}

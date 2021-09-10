@@ -1,0 +1,83 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+
+//vector容器的互换
+
+void printVector(vector<int>& vec)
+{
+	for (vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+}
+
+//1.基本使用
+void test01()
+{
+	//第1个容器
+	vector<int>vec1;
+
+	for (int i = 1; i < 10; i++)
+	{
+		vec1.push_back(i);
+	}
+	printVector(vec1);
+
+
+	//第2个容器
+	vector<int>vec2;
+
+	for (int i = 9; i > 0; i--)
+	{
+		vec2.push_back(i);
+	}
+	printVector(vec2);
+
+
+	//交换后
+	cout << "交换后" << endl;
+	vec1.swap(vec2);
+	printVector(vec1);
+	printVector(vec2);
+}
+
+
+//2.实际用途
+
+//巧用swap可以收缩内存空间
+void test02()
+{
+	vector<int>vec;
+	
+	for (int i = 0; i < 10000; i++)
+	{
+		vec.push_back(i);
+	}
+
+	cout << "vec的容量：" << vec.capacity() << endl;
+	cout << "vec的大小：" << vec.size() << endl;
+
+	//重新指定大小，容量未减少
+	vec.resize(5);
+	cout << "vec的容量：" << vec.capacity() << endl;
+	cout << "vec的大小：" << vec.size() << endl;
+
+	//交换，收缩内存
+	vector<int>(vec).swap(vec);
+	cout << "vec的容量：" << vec.capacity() << endl;
+	cout << "vec的大小：" << vec.size() << endl;
+}
+
+
+
+int main()
+{
+	//test01();
+
+	test02();
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+#include<deque>
+
+//deque的数据存取
+
+void printDeque(const deque<int>& deq)
+{
+	for (deque<int>::const_iterator it = deq.begin(); it != deq.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+}
+
+void test01()
+{
+	deque<int>deq1;
+
+	deq1.push_back(10);
+	deq1.push_back(20);
+	deq1.push_back(30);
+
+	deq1.push_front(100);
+	deq1.push_front(200);
+	deq1.push_front(300);
+
+	// 300 200 100 10 20 30
+	printDeque(deq1);
+
+
+	//1.operator[]访问
+	for (int i = 0; i < deq1.size(); i++)
+	{
+		cout << deq1[i] << " ";
+	}
+	cout << endl;
+
+
+	//2.at()访问
+	for (int i = 0; i < deq1.size(); i++)
+	{
+		cout << deq1.at(i) << " ";
+	}
+	cout << endl;
+
+	cout << "deq1的第一个元素：" << deq1.front() << endl;
+	cout << "deq1的最后一个元素：" << deq1.back() << endl;
+}
+
+int main()
+{
+	test01();
+
+	system("pause");
+	return 0;
+}

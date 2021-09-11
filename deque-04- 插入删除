@@ -1,0 +1,126 @@
+#include<iostream>
+using namespace std;
+#include<deque>
+
+//deque的插入删除
+
+void printDeque(const deque<int>& deq)
+{
+	for(deque<int>::const_iterator it=deq.begin();it!=deq.end();it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+}
+
+//1.尾插入删除
+void test01()
+{
+	deque<int>deq1;
+
+	//1.尾插
+	deq1.push_back(10);
+	deq1.push_back(20);
+
+	// 10 20
+	printDeque(deq1);  
+
+
+	//2.头插
+	deq1.push_front(1);
+	deq1.push_front(2);
+
+	// 2 1 10 20
+	printDeque(deq1);
+
+
+	//3.尾删
+	deq1.pop_back();
+	// 2 1 10 
+	printDeque(deq1);
+
+
+	//4.头删
+	deq1.pop_front();
+	// 1 10
+	printDeque(deq1);
+}
+
+//2.insert插入
+void test02()
+{
+	deque<int>deq1;
+
+	deq1.push_back(10);
+	deq1.push_back(20);
+
+	deq1.push_front(100);
+	deq1.push_front(200);
+
+	// 200 100 10 20
+	printDeque(deq1);
+
+
+
+	//1.insert 插入
+	deq1.insert(deq1.begin(), 1000);
+
+	// 1000 200 100 10 20
+	printDeque(deq1);
+
+
+	deq1.insert(deq1.begin(), 3, 999);
+
+	// 999 999 999 1000 200 100 10 20
+	printDeque(deq1);
+
+
+
+	//2.按照区间插入
+	deque<int>deq2;
+
+	deq2.push_back(1);
+	deq2.push_back(2);
+	deq2.push_back(3);
+
+	deq1.insert(deq1.begin(), deq2.begin(), deq2.end());
+	// 1 2 3 999 999 999 1000 200 100 10 20
+	printDeque(deq1);
+}
+
+//3.删除
+void test03()
+{
+	deque<int>deq1;
+
+	deq1.push_back(10);
+	deq1.push_back(20);
+
+	deq1.push_front(100);
+	deq1.push_front(200);
+
+	// 200 100 10 20
+	printDeque(deq1);
+
+
+	//1.erase删除
+	deq1.erase(deq1.begin());
+	printDeque(deq1);
+
+	//2.清空
+	deq1.erase(deq1.begin(), deq1.end());
+	deq1.clear();
+	printDeque(deq1);
+}
+
+int main()
+{
+	//test01();
+
+	//test02();
+
+	test03();
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+#include<deque>
+
+//deque-大小操作
+
+void printDeque(const deque<int>& deq)
+{
+	for (deque<int>::const_iterator it = deq.begin(); it != deq.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+}
+
+void test01()
+{
+	deque<int>deq1;
+
+	for (int i = 0; i < 10; i++)
+	{
+		deq1.push_back(i);
+	}
+
+	printDeque(deq1);
+
+
+	//判断是否为空
+	if (deq1.empty())
+	{
+		cout << "deque为空" << endl;
+	}
+	else
+	{
+		cout << "deque不为空" << endl;
+		cout << "deque的大小：" << deq1.size() << endl;
+	}
+
+	//重新指定大小
+	//deq1.resize(15);
+	deq1.resize(15, 3);
+	printDeque(deq1);
+
+	deq1.resize(5);
+	printDeque(deq1);
+}
+
+int main()
+{
+	test01();
+
+	system("pause");
+	return 0;
+}

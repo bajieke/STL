@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+#include<queue>
+
+void test01()
+{
+	queue<int>que;
+
+	que.push(10);
+	que.push(20);
+	que.push(30);
+	que.push(40);
+	que.push(40);
+
+	cout << "队列大小：" << que.size() << endl;
+
+	while (!que.empty())
+	{
+		cout << "队头：" << que.front() << endl;
+		cout << "队尾：" << que.back() << endl;
+		que.pop();
+
+		cout << endl;
+	}
+
+	cout << "全部出队后队列的大小：" << que.size() << endl;
+}
+
+int main()
+{
+	test01();
+
+	system("pause");
+	return 0;
+}
